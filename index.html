@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nate Randolph — Producer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,500..900,100,1;1,9..144,500..900,100,1&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500[...]
+<style>
+  :root{
+    --ink:#111111;
+    --paper:#ffffff;
+    --grey:#555555;
+    --hairline:#e6e6e6;
+    --laurel:#c07f2e;
+    --red:#a4231a;
+    --red-deep:#3c0d08;
+    --grad:linear-gradient(168deg,#0e0605 0%,#330c08 46%,#7c1a10 88%,#96261a 100%);
+    --display:'Fraunces', serif;
+    --body:'Archivo', sans-serif;
+    --mono:'IBM Plex Mono', monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  h1,h2,h3,.wordmark,.foot-name{font-variation-settings:"SOFT" 100,"WONK" 1,"opsz" 72;}
+  html{scroll-behavior:smooth;}
+  body{font-family:var(--body);color:var(--ink);background:var(--paper);line-height:1.6;font-size:16px;}
+  ::selection{background:var(--red);color:#fff;}
+
+  .placeholder-note{
+    font-family:var(--mono);font-size:11px;color:#b0492f;
+    border:1px dashed #b0492f;padding:4px 8px;display:inline-block;margin-top:8px;
+  }
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    display:flex;justify-content:space-between;align-items:center;
+    padding:18px 40px;background:rgba(255,255,255,.94);
+    backdrop-filter:blur(8px);border-bottom:1px solid var(--hairline);
+  }
+  nav .wordmark{font-family:var(--display);font-style:italic;font-weight:600;font-size:20px;letter-spacing:.02em;text-decoration:none;color:var(--ink);}
+  nav ul{display:flex;gap:28px;list-style:none;}
+  nav ul a{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;color:var(--grey);transition:color .2s;}
+  nav ul a:hover, nav ul a:focus-visible{color:var(--ink);}
+  nav ul a:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
+
+  /* ---------- HERO (black band — matches cover letter header) ---------- */
+  header{
+    background:
+      linear-gradient(172deg, rgba(12,5,4,.50) 0%, rgba(30,9,6,.55) 55%, rgba(74,15,9,.72) 100%),
+      url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5Ojf/2wBDAQoKCg0MDRoPDxo3JR8lNzc3Nzc3Nzc3Nzc3Nzc3Nzc[...]
+    color:#fff;
+    min-height:88vh;display:flex;flex-direction:column;
+    justify-content:center;align-items:center;text-align:center;
+    padding:140px 24px 90px;position:relative;
+  }
+  .eyebrow{
+    font-family:var(--mono);font-size:12px;letter-spacing:.34em;
+    text-transform:uppercase;color:#d8a06a;margin-bottom:28px;
+  }
+  header h1{
+    text-shadow:0 2px 28px rgba(0,0,0,.55);
+    font-family:var(--display);font-style:italic;font-weight:500;
+    font-size:clamp(56px,9vw,118px);line-height:1.02;letter-spacing:.01em;
+  }
+  .hero-rule{
+    width:120px;height:12px;margin:36px auto;background:
+      linear-gradient(#e8a94b 0 3px, transparent 3px 4.5px,
+                      #d4652a 4.5px 7.5px, transparent 7.5px 9px,
+                      #a4231a 9px 12px);
+  }
+  .hero-sub{
+    font-family:var(--body);font-weight:400;font-size:15px;color:#c9c9c9;
+    max-width:520px;letter-spacing:.02em;
+  }
+  .hero-credits{
+    margin-top:44px;font-family:var(--mono);font-size:11px;letter-spacing:.22em;
+    text-transform:uppercase;color:#8f8f8f;display:flex;gap:14px;flex-wrap:wrap;justify-content:center;
+  }
+  .hero-credits span{white-space:nowrap;}
+  .hero-credits .dot{color:#4d4d4d;}
+  .hero-contact{
+    margin-top:18px;font-family:var(--mono);font-size:11px;letter-spacing:.18em;
+    text-transform:uppercase;display:flex;gap:14px;flex-wrap:wrap;justify-content:center;
+  }
+  .hero-contact a{color:#c9c9c9;text-decoration:none;transition:color .2s;}
+  .hero-contact a:hover, .hero-contact a:focus-visible{color:#e8a94b;}
+  .hero-contact .dot{color:#4d4d4d;}
+  .scroll-cue{
+    position:absolute;bottom:28px;left:50%;transform:translateX(-50%);
+    font-family:var(--mono);font-size:10px;letter-spacing:.3em;color:#6f6f6f;text-transform:uppercase;
+  }
+
+  /* ---------- SECTION SCAFFOLD ---------- */
+  section{max-width:1080px;margin:0 auto;padding:110px 40px 30px;}
+  .section-head{
+    display:flex;align-items:baseline;gap:20px;border-bottom:1px solid var(--ink);
+    padding-bottom:14px;margin-bottom:60px;
+  }
+  .section-head .slug{font-family:var(--mono);font-size:11px;letter-spacing:.2em;color:var(--grey);text-transform:uppercase;}
+  .section-head h2{font-family:var(--display);font-style:italic;font-weight:600;font-size:38px;line-height:1;}
+
+  /* ---------- SECTION 1: PRODUCED FILMS ---------- */
+  .film{
+    display:grid;grid-template-columns:380px 1fr;gap:56px;
+    margin-bottom:96px;align-items:start;
+  }
+  .film-poster{
+    aspect-ratio:2/3;background:#f5f5f5;border:1px solid var(--hairline);
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--mono);font-size:11px;color:#a9a49b;letter-spacing:.15em;
+    text-transform:uppercase;text-align:center;padding:20px;
+  }
+  .film-poster img{width:100%;height:100%;object-fit:cover;display:block;}
+  .laurel{
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--laurel);border:1px solid var(--laurel);
+    padding:7px 14px;margin-bottom:20px;
+  }
+  .laurel svg{flex-shrink:0;}
+  .film h3{font-family:var(--display);font-style:italic;font-weight:600;font-size:44px;line-height:1.05;margin-bottom:6px;}
+  .film .meta{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey);margin-bottom:24px;}
+  .film .logline{font-size:17px;line-height:1.7;max-width:56ch;margin-bottom:22px;}
+  .film .role-line{font-size:14px;color:var(--grey);margin-bottom:26px;max-width:56ch;}
+  .btn{
+    display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.18em;
+    text-transform:uppercase;text-decoration:none;color:var(--ink);
+    border:1px solid var(--ink);padding:11px 22px;transition:background .2s,color .2s;
+  }
+  .btn:hover, .btn:focus-visible{background:var(--red);border-color:var(--red);color:#fff;}
+  .btn:focus-visible{outline:2px solid var(--ink);outline-offset:3px;}
+  .btn.solid{background:var(--ink);border-color:var(--ink);color:#fff;}
+  .btn.solid:hover{background:var(--red);border-color:var(--red);}
+
+  /* ---------- SECTION 2: DEVELOPED SERIES ---------- */
+  .series-row{
+    display:grid;grid-template-columns:200px 1fr 200px;gap:32px;
+    padding:38px 0;border-bottom:1px solid var(--hairline);align-items:baseline;
+  }
+  .series-row:first-of-type{border-top:1px solid var(--hairline);}
+  .series-row h3{font-family:var(--display);font-style:italic;font-weight:600;font-size:30px;line-height:1.1;}
+  .series-row .series-log{font-size:15px;line-height:1.7;color:#333;max-width:58ch;}
+  .series-row .series-status{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--grey);text-align:right;}
+  .series-row .series-format{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--grey);display:block;margin-top:8px;}
+  .series-art{width:150px;border:1px solid var(--hairline);display:block;margin-bottom:14px;}
+  .series-art img{width:100%;display:block;}
+  @media (max-width:860px){.series-art{width:120px;}}
+
+  /* ---------- SECTION 3: BELOW-THE-LINE (credits table) ---------- */
+  .credits-note{font-size:15px;color:var(--grey);max-width:60ch;margin-bottom:44px;}
+  .credits-table{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:13px;}
+  .credits-table th{
+    text-align:left;font-weight:500;letter-spacing:.18em;text-transform:uppercase;
+    font-size:10px;color:var(--grey);padding:0 16px 12px 0;border-bottom:1px solid var(--ink);
+  }
+  .credits-table td{padding:16px 16px 16px 0;border-bottom:1px solid var(--hairline);vertical-align:top;}
+  .credits-table .role-cell{color:var(--laurel);letter-spacing:.08em;text-transform:uppercase;font-size:11px;white-space:nowrap;}
+
+  /* ---------- SECTION 4: IMDB / VERIFY ---------- */
+  .verify{
+    background:#f7f7f7;border:1px solid var(--hairline);
+    padding:56px 48px;display:flex;justify-content:space-between;align-items:center;gap:32px;flex-wrap:wrap;
+  }
+  .verify h2{font-family:var(--display);font-style:italic;font-weight:600;font-size:30px;margin-bottom:8px;}
+  .verify p{color:var(--grey);font-size:14px;max-width:48ch;}
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background:linear-gradient(348deg,#0e0605 0%,#330c08 46%,#7c1a10 100%);color:#fff;margin-top:120px;
+    padding:90px 40px 40px;text-align:center;
+  }
+  footer .foot-name{font-family:var(--display);font-style:italic;font-weight:500;font-size:40px;margin-bottom:10px;}
+  footer .foot-tag{font-family:var(--mono);font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:#d8a06a;margin-bottom:40px;}
+  .foot-links{display:flex;gap:18px;justify-content:center;flex-wrap:wrap;margin-bottom:64px;}
+  .foot-links a{
+    font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+    color:#fff;text-decoration:none;border:1px solid #4a4a4a;padding:11px 22px;transition:border-color .2s,background .2s;
+  }
+  .foot-links a:hover, .foot-links a:focus-visible{border-color:#e8a94b;background:rgba(232,169,75,.12);}
+  footer .colophon{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:#5f5f5f;}
+
+
+  /* ---------- STILLS GALLERY ---------- */
+  .stills-label{font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--grey);margin:26px 0 10px;}
+  .stills-row{display:grid;grid-template-columns:repeat(7,1fr);gap:8px;}
+  .still-thumb{aspect-ratio:16/10;overflow:hidden;border:1px solid var(--hairline);cursor:pointer;padding:0;background:#000;}
+  .still-thumb img{width:100%;height:100%;object-fit:cover;display:block;opacity:.85;transition:opacity .25s,transform .35s;}
+  .still-thumb:hover img,.still-thumb:focus-visible img{opacity:1;transform:scale(1.04);}
+  .still-thumb:focus-visible{outline:2px solid var(--ink);outline-offset:2px;}
+  @media (max-width:860px){.stills-row{grid-template-columns:repeat(4,1fr);}}
+
+  .lightbox{position:fixed;inset:0;background:rgba(8,8,8,.96);z-index:200;display:none;align-items:center;justify-content:center;flex-direction:column;padding:40px;}
+  .lightbox.open{display:flex;}
+  .lightbox img{max-width:min(1100px,92vw);max-height:78vh;object-fit:contain;border:1px solid #333;}
+  .lb-caption{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#9a9a9a;margin-top:18px;text-align:center;}
+  .lb-counter{color:#5f5f5f;margin-left:14px;}
+  .lb-btn{position:absolute;top:50%;transform:translateY(-50%);background:none;border:1px solid #444;color:#ccc;font-family:var(--mono);font-size:18px;width:46px;height:46px;cursor:pointer;transition:[...]
+  .lb-btn:hover,.lb-btn:focus-visible{border-color:#fff;color:#fff;}
+  .lb-prev{left:26px;}.lb-next{right:26px;}
+  .lb-close{position:absolute;top:22px;right:26px;background:none;border:none;color:#ccc;font-size:26px;cursor:pointer;font-family:var(--body);}
+  .lb-close:hover{color:#fff;}
+  @media (max-width:860px){.lightbox{padding:16px;}.lb-prev{left:8px;}.lb-next{right:8px;}}
+
+  /* ---------- REVEAL ANIMATION ---------- */
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease;}
+  .reveal.in{opacity:1;transform:none;}
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .reveal{opacity:1;transform:none;transition:none;}
+  }
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:860px){
+    nav{padding:14px 20px;}
+    nav ul{gap:16px;}
+    nav ul li:nth-child(n+4){display:none;}
+    section{padding:80px 22px 20px;}
+    .film{grid-template-columns:1fr;gap:32px;margin-bottom:72px;}
+    .film-poster{max-width:340px;}
+    .series-row{grid-template-columns:1fr;gap:12px;}
+    .series-row .series-status{text-align:left;}
+    .verify{padding:36px 26px;}
+    .credits-table{font-size:12px;}
+    .credits-table td, .credits-table th{padding-right:10px;}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="wordmark" href="#top">Nate Randolph</a>
+  <ul>
+    <li><a href="#films">Films</a></li>
+    <li><a href="#series">Series</a></li>
+    <li><a href="#credits">Credits</a></li>
+    <li><a href="#imdb">IMDB</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header id="top">
+  <div class="eyebrow">Producer &nbsp;·&nbsp; Los Angeles</div>
+  <h1>Nate<br>Randolph</h1>
+    <div class="hero-credits">
+    <span>2× Festival Official Selections</span><span class="dot">/</span>
+    <span>4 Series in Development</span><span class="dot">/</span>
+    <span>1st AD · UPM</span>
+  </div>
+  <div class="hero-contact">
+    <a href="tel:+16505186952">650-518-6952</a><span class="dot">/</span>
+    <a href="mailto:natestrongrandolph@gmail.com">natestrongrandolph@gmail.com</a>
+  </div>
+  <div class="scroll-cue">Scroll</div>
+</header>
+
+<!-- ================= SECTION 1: PRODUCED FILMS ================= -->
+<section id="films">
+  <div class="section-head reveal">
+    <span class="slug">01 — Produced</span>
+    <h2>Festival Films</h2>
+  </div>
+
+  <!-- FILM 1: CONTRACT OF LOVE -->
+  <div class="film reveal">
+    <div class="film-poster" id="poster-col" style="background:none;border:1px solid var(--hairline);">
+      <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBAUEBAYFBQUGBgYHCQ4JCQgICRINDQoOFRIWFhUSFBQXGiEcFxgfGRQUHScdHyIjJSUlFhwpLCgkKyEkJST/2wBDAQYGBgkICREJCREkGBQYJCQkJCQkJCQkJCQkJ[...]
+    </div>
+    <div>
+      <div class="laurel">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3c-3 3-3 8 0 11 3-3 3-8 0-11z"/><path d="M5 8c0 5 3 9 7 10-1-4-3-8-7-10z"/><pa[...]
+        Official Selection — Toronto Int'l Nollywood Film Festival 2025
+      </div>
+      <h3>Contract of Love</h3>
+      <div class="meta">2025 &nbsp;·&nbsp; 13 min &nbsp;·&nbsp; Drama &nbsp;·&nbsp; Producer</div>
+      <p class="logline">A Chinese father flies to America to visit his daughter, an art curator quietly fighting for her place, and reveals his true motive: a property deed meant to bind her future t[...]
+      <p class="role-line">Sole producer · Directed by Nebula Li · Graduate thesis film. Led a 30+ person international cast and crew on a bilingual English–Mandarin production, from development t[...]
+      <a class="btn" href="https://vimeo.com/1077132788" target="_blank" rel="noopener" id="trailer-col">Watch the Film</a>
+      <a class="btn" href="contract-of-love-pitch-deck.pdf" target="_blank" rel="noopener" style="margin-left:10px;">View Pitch Deck</a>
+      <div class="stills-label">Production Stills — Click to View</div>
+      <div class="stills-row" data-gallery="col">
+        <button class="still-thumb" aria-label="Open Contract of Love still 1 of 9"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgFBgcGBQgHBgcJCAgJDBMMDAsLDBgREg4THBgdHRsYGxofIyw[...]
+        <button class="still-thumb" aria-label="Open Contract of Love still 2 of 9"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgFBgcGBQgHBgcJCAgJDBMMDAsLDBgREg4THBgdHRsYGxofIyw[...]
+        <button class="still-thumb" aria-label="Open Contract of Love still 3 of 9"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgFBgcGBQgHBgcJCAgJDBMMDAsLDBgREg4THBgdHRsYGxofIyw[...]
+        <button class="still-thumb" aria-label="Open Contract of Love still 4 of 9"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgFBgcGBQgHBgcJCAgJDBMMDAsLDBgREg4THBgdHRsYGxofIyw[...]
+        <button class="still-thumb" aria-label="Open Contract of Love still 5 of 9"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgFBgcGBQgHBgcJCAgJDBMMDAsLDBgREg4THBgdHRsYGxofIyw[...]
+        <button class="still-thumb" aria-label="Open Contract of Love still 6 of 9"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgFBgcGBQgHBgcJCAgJDBMMDAsLDBgREg4THBgdHRsYGxofIyw[...]
+        <button class="still-thumb" aria-label="Open Contract of Love still 7 of 9"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgFBgcGBQgHBgcJCAgJDBMMDAsLDBgREg4THBgdHRsYGxofIyw[...]
+        <button class="still-thumb" aria-label="Open Contract of Love still 8 of 9"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgFBgcGBQgHBgcJCAgJDBMMDAsLDBgREg4THBgdHRsYGxofIyw[...]
+        <button class="still-thumb" aria-label="Open Contract of Love still 9 of 9"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgFBgcGBQgHBgcJCAgJDBMMDAsLDBgREg4THBgdHRsYGxofIyw[...]
+      </div>
+    </div>
+  </div>
+
+  <!-- FILM 2: IN THE NIGHT -->
+  <div class="film reveal">
+    <div class="film-poster" id="poster-itn" style="background:none;border:1px solid var(--hairline);">
+      <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBAUEBAYFBQUGBgYHCQ4JCQgICRINDQoOFRIWFhUSFBQXGiEcFxgfGRQUHScdHyIjJSUlFhwpLCgkKyEkJST/2wBDAQYGBgkICREJCREkGBQYJCQkJCQkJCQkJCQkJ[...]
+    </div>
+    <div>
+      <div class="laurel">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3c-3 3-3 8 0 11 3-3 3-8 0-11z"/><path d="M5 8c0 5 3 9 7 10-1-4-3-8-7-10z"/><pa[...]
+        LA Shorts Int'l Film Festival — Oscar-Qualifying
+      </div>
+      <h3>In the Night</h3>
+      <div class="meta">2024 &nbsp;·&nbsp; 7 min &nbsp;·&nbsp; Drama &nbsp;·&nbsp; Producer</div>
+      <p class="logline">In a world of darkness, Andre grapples with loss and brotherhood as he confronts his inner demons, seeking redemption amidst a cycle of violence and family ties.</p>
+      <p class="role-line">Produced with Adam Ferenczy · Directed by Ben Alvarado · Written by James Crawford III. Delivered a 28-person crew production in a three-day shoot at Dodge College of Film[...]
+      <a class="btn" href="https://vimeo.com/953749170/94d40d046e" target="_blank" rel="noopener" id="trailer-itn">Watch the Film</a>
+      <a class="btn" href="in-the-night-pitch-deck.pdf" target="_blank" rel="noopener" style="margin-left:10px;">View Pitch Deck</a>
+      <div class="stills-label">Production Stills — Click to View</div>
+      <div class="stills-row" data-gallery="itn">
+        <button class="still-thumb" data-idx="0" aria-label="Open still 1 of 7"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgFBgcGBQgHBgcJCAgJDBMMDAsLDBgREg4THBgdHRsYGxofIywlHyE[...]
+        <button class="still-thumb" data-idx="1" aria-label="Open still 2 of 7"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgFBgcGBQgHBgcJCAgJDBMMDAsLDBgREg4THBgdHRsYGxofIywlHyE[...]
+        <button class="still-thumb" data-idx="2" aria-label="Open still 3 of 7"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgFBgcGBQgHBgcJCAgJDBMMDAsLDBgREg4THBgdHRsYGxofIywlHyE[...]
